@@ -9,7 +9,7 @@ Patch0:		xboing2.4.patch
 Patch1:		xboing-2.4.patch
 Patch2:		xboing-2.4-sparc.patch
 Url:		http://www.catt.rmit.edu.au/xboing/xboing.html
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		/usr/X11R6/man
