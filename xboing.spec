@@ -28,7 +28,7 @@ you've broken through all of them.
 
 %build
 xmkmf
-make CDEBUGFLAGS="$RPM_OPT_FLAGS" \
+%{__make} CDEBUGFLAGS="$RPM_OPT_FLAGS" \
 	XBOING_DIR=%{_datadir}/xboing \
 	HIGH_SCORE_FILE=/var/lib/games/xboing.score
 
