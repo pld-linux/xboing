@@ -2,7 +2,7 @@ Summary:	A Breakout style X Window System based game
 Summary(pl):	Gra pod X podobna do Breakout
 Name:		xboing
 Version:	2.4
-Release:	9
+Release:	10
 License:	MIT
 Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
