@@ -5,4 +5,4 @@ Comment[pl]=Gra pod X podobna do Breakout
 Icon=xboing.png
 Exec=xboing
 Type=Application
-Terminal=0
+Terminal=false
