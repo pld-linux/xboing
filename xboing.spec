@@ -13,6 +13,7 @@ Patch1:		%{name}-2.4.patch
 Patch2:		%{name}-2.4-sparc.patch
 Patch3:		%{name}-visualfix.patch
 URL:		http://www.catt.rmit.edu.au/xboing/xboing.html
+BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
