@@ -2,7 +2,7 @@ Summary:	A Breakout style X Window System based game
 Summary(pl):	Gra pod X podobna do Breakout
 Name:		xboing
 Version:	2.4
-Release:	11
+Release:	12
 License:	MIT
 Group:		X11/Applications/Games
 Source0:	http://www.techrescue.org/xboing/%{name}%{version}.tar.gz
@@ -44,14 +44,14 @@ xmkmf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/var/games,%{_datadir}/xboing,%{_applnkdir}/Games/Arcade,%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{/var/games,%{_datadir}/xboing,%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT \
 	XBOING_DIR=$RPM_BUILD_ROOT%{_datadir}/xboing \
 	HIGH_SCORE_FILE=$RPM_BUILD_ROOT/var/games/xboing.score \
 	install install.man
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -64,5 +64,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(664,root,games) %config(noreplace) %verify(not size mtime md5) /var/games/xboing.score
 %{_datadir}/xboing
 %{_mandir}/man1/xboing.1x*
-%{_applnkdir}/Games/Arcade/xboing.desktop
+%{_desktopdir}/*
 %{_pixmapsdir}/*
