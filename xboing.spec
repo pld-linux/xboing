@@ -56,14 +56,12 @@ install -d $RPM_BUILD_ROOT{/var/games,%{_datadir}/xboing,%{_applnkdir}/Games/Arc
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf COPYRIGHT README docs/*.doc
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz docs/*.gz
+%doc COPYRIGHT README docs/*.doc
 %attr(2755,root,games) %{_bindir}/xboing
 %attr(664,root,games) %config(noreplace) %verify(not size mtime md5) /var/games/xboing.score
 %{_datadir}/xboing
