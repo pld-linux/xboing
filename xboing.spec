@@ -6,6 +6,7 @@ Release:	10
 License:	MIT
 Group:		X11/Applications/Games
 Source0:	http://www.techrescue.org/xboing/%{name}%{version}.tar.gz
+# Source0-md5:	d596d29e53cf0deceb18f3b646787709
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}.patch
