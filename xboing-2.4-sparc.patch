@@ -1,0 +1,29 @@
+--- xboing/Imakefile.ewt	Tue Jun  2 08:43:22 1998
++++ xboing/Imakefile	Tue Jun  2 08:44:16 1998
+@@ -29,8 +29,8 @@
+ XCOMM These are some defines that must be set. Some may be overwritten in the
+ XCOMM machine arch section.
+ 
+-    XPMLIB 				= -L/usr/X11/lib -lXpm
+-    XPMINCLUDE 			= -I/usr/X11/include/X11
++    XPMLIB 			= -L/usr/X11R6/lib -lXpm
++    XPMINCLUDE 			= -I/usr/X11R6/include/X11
+     XBOINGINCLUDE 		= -I./include
+     LEVEL_INSTALL_DIR 	= $(XBOING_DIR)/levels
+     SOUNDS_DIR 			= $(XBOING_DIR)/sounds
+@@ -77,6 +77,7 @@
+     AUDIO_LIB 		= -laudio
+ #endif /* SGIArchitecture */
+ 
++#if 0	/* Sparc != (SunOS || Solaris) <sigh> */
+ #if defined(SparcArchitecture) && defined(COMPILE_IN_AUDIO)
+     AUDIO_AVAILABLE	= True
+     AUDIO_SRC 		= audio/SUNaudio.c
+@@ -92,6 +93,7 @@
+ #endif
+ 
+ #endif /* SparcArchitecture */
++#endif
+ 
+ 
+ XCOMM Define USE_RPLAY near start for rplay to be used for the sound system

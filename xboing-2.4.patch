@@ -1,0 +1,33 @@
+--- xboing/Imakefile.marc	Thu Oct 23 00:33:07 1997
++++ xboing/Imakefile	Thu Oct 23 00:35:09 1997
+@@ -24,7 +24,7 @@
+ XCOMM This is the directory where the highscore, level & sound data will be 
+ XCOMM placed. Default will be the current directory.
+ 
+-    XBOING_DIR = .
++    XBOING_DIR = /usr/lib/games/xboing
+ 
+ XCOMM These are some defines that must be set. Some may be overwritten in the
+ XCOMM machine arch section.
+@@ -35,11 +35,7 @@
+     LEVEL_INSTALL_DIR 	= $(XBOING_DIR)/levels
+     SOUNDS_DIR 			= $(XBOING_DIR)/sounds
+     BACKUP_DIR 			= $(XBOING_DIR)/../backups
+-    HIGH_SCORE_FILE 	= $(XBOING_DIR)/.xboing.scr
+-    AUDIO_AVAILABLE 	= False
+-    AUDIO_SRC 			= audio/NOaudio.c
+-    AUDIO_INCLUDE 		=
+-    AUDIO_LIB 			=
++    HIGH_SCORE_FILE 	= /var/lib/games/xboing.score
+ 	CDEBUGFLAGS         = -g
+ 
+ XCOMM Uncomment this if you want to use ANY of the AUDIO sound systems
+@@ -57,7 +53,7 @@
+     AUDIO_AVAILABLE = True
+     AUDIO_SRC 		= audio/HPaudio.c
+     AUDIO_INCLUDE 	=
+-    AUDIO_LIB 		= -laudio
++    AUDIO_LIB 		=
+ #endif /* HPArchitecture */
+ 
+ #if defined(LinuxArchitecture) && defined(COMPILE_IN_AUDIO)
