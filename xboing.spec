@@ -1,7 +1,7 @@
 Summary:	A Breakout style X Window System based game.
 Name:		xboing
 Version:	2.4
-Release:	7
+Release:	8
 Copyright:	MIT
 Group:		Amusements/Games
 Source:		ftp://ftp.x.org/pub/games/%{name}%{version}.tar.gz
@@ -29,16 +29,16 @@ you've broken through all of them.
 xmkmf
 make CDEBUGFLAGS="$RPM_OPT_FLAGS" \
 	XBOING_DIR=%{_datadir}/xboing \
-	HIGH_SCORE_FILE=/var/state/games/xboing.score
+	HIGH_SCORE_FILE=/var/lib/games/xboing.score
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/var/state/games,%{_datadir}/xboing}
+install -d $RPM_BUILD_ROOT{/var/lib/games,%{_datadir}/xboing}
 install -d $RPM_BUILD_ROOT/etc/X11/wmconfig
 
 make	DESTDIR=$RPM_BUILD_ROOT \
 	XBOING_DIR=$RPM_BUILD_ROOT%{_datadir}/xboing \
-	HIGH_SCORE_FILE=$RPM_BUILD_ROOT/var/state/games/xboing.score \
+	HIGH_SCORE_FILE=$RPM_BUILD_ROOT/var/lib/games/xboing.score \
 	install install.man
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_bindir}/*
@@ -57,7 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%config /var/state/games/xboing.score
+%config /var/lib/games/xboing.score
 %config /etc/X11/wmconfig/xboing
 %attr(755,root,root) %{_bindir}/xboing
 %{_datadir}/xboing
