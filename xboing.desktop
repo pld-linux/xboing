@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=xboing
+Comment=Breakout-style Game
+Comment[pl]=Gra pod X podobna do Breakout
+Exec=xboing
+Type=Application
+Terminal=0
