@@ -44,7 +44,7 @@ xmkmf
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/var/games,%{_datadir}/xboing,%{_desktopdir},%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{/var/games,%{_datadir}/xboing,%{_desktopdir},%{_pixmapsdir},%{_bindir},%{_mandir}/man1}
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT \
 	XBOING_DIR=$RPM_BUILD_ROOT%{_datadir}/xboing \
@@ -53,6 +53,9 @@ install -d $RPM_BUILD_ROOT{/var/games,%{_datadir}/xboing,%{_desktopdir},%{_pixma
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+
+mv $RPM_BUILD_ROOT/usr/X11R6/bin/* $RPM_BUILD_ROOT%{_bindir}
+mv $RPM_BUILD_ROOT/usr/X11R6/man/man1/* $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
