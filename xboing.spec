@@ -17,9 +17,6 @@ URL:		http://www.techrescue.org/xboing/
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		/usr/X11R6/man
-
 %description
 Xboing is an X Window System based game like the Breakout arcade game.
 The object of the game is to keep a ball bouncing on the bricks until
