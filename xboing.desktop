@@ -7,4 +7,5 @@ Icon=xboing.png
 Exec=xboing
 Type=Application
 Terminal=false
+Categories=Game;ArcadeGame;
 # vi: encoding=utf-8
