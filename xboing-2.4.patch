@@ -18,7 +18,7 @@
 -    AUDIO_SRC 			= audio/NOaudio.c
 -    AUDIO_INCLUDE 		=
 -    AUDIO_LIB 			=
-+    HIGH_SCORE_FILE 	= /var/lib/games/xboing.score
++    HIGH_SCORE_FILE 	= /var/games/xboing.score
  	CDEBUGFLAGS         = -g
  
  XCOMM Uncomment this if you want to use ANY of the AUDIO sound systems

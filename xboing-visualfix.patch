@@ -1,0 +1,11 @@
+--- xboing/init.c.orig	Fri Nov 22 02:28:46 1996
++++ xboing/init.c	Sat Nov  3 16:11:12 2001
+@@ -997,7 +997,7 @@
+ 		colormap = XDefaultColormap(display, screen_num);
+ 	else
+ 		colormap = XCreateColormap(display, RootWindow(display, screen_num), 
+-			visual_info.visual, AllocNone);
++			DefaultVisual(display, screen_num), AllocNone);
+ 
+ 	DEBUG("Colourmap created.")
+ 
