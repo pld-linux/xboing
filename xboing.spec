@@ -7,12 +7,14 @@ License:	MIT
 Group:		X11/Applications/Games
 Group(de):	X11/Applikationen/Spiele
 Group(pl):	X11/Aplikacje/Gry
-Source0:	ftp://ftp.x.org/pub/games/%{name}%{version}.tar.gz
-Patch0:		%{name}2.4.patch
-Patch1:		%{name}-2.4.patch
-Patch2:		%{name}-2.4-sparc.patch
+Source0:	http://www.techrescue.org/xboing/%{name}%{version}.tar.gz
+Source1:	%{name}.desktop
+Source2:	%{name}.png
+Patch0:		%{name}.patch
+Patch1:		%{name}-Imakefile.patch
+Patch2:		%{name}-sparc.patch
 Patch3:		%{name}-visualfix.patch
-URL:		http://www.catt.rmit.edu.au/xboing/xboing.html
+URL:		http://www.techrescue.org/xboing/
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -25,9 +27,9 @@ The object of the game is to keep a ball bouncing on the bricks until
 you've broken through all of them.
 
 %description -l pl
-Xboing jest gr± pod X Window System podobn± do klasycznej gry Breakout.
-Celem gry jest utrzymanie pi³ki odbijaj±cej siê od cegie³ a¿ do
-przebicia siê przez wszystkie.
+Xboing jest gr± pod X Window System podobn± do klasycznej gry
+Breakout. Celem gry jest utrzymanie pi³ki odbijaj±cej siê od cegie³ a¿
+do przebicia siê przez wszystkie.
 
 %prep
 %setup -q -n xboing
@@ -38,27 +40,23 @@ przebicia siê przez wszystkie.
 
 %build
 xmkmf
-%{__make} CDEBUGFLAGS="%{rpmcflags}" \
+%{__make} \
+	CC=%{__cc} \
+	CDEBUGFLAGS="%{rpmcflags}" \
 	XBOING_DIR=%{_datadir}/xboing \
 	HIGH_SCORE_FILE=/var/games/xboing.score
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/var/games,%{_datadir}/xboing,%{_applnkdir}/Games}
+install -d $RPM_BUILD_ROOT{/var/games,%{_datadir}/xboing,%{_applnkdir}/Games/Arcade,%{_pixmapsdir}}
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT \
 	XBOING_DIR=$RPM_BUILD_ROOT%{_datadir}/xboing \
 	HIGH_SCORE_FILE=$RPM_BUILD_ROOT/var/games/xboing.score \
 	install install.man
 
-cat > $RPM_BUILD_ROOT%{_applnkdir}/Games/xboing.desktop <<EOF
-[Desktop Entry]
-Name=xboing
-Comment=Breakout-style Game
-Exec=xboing
-Type=Application
-Terminal=0
-EOF
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 gzip -9nf COPYRIGHT README docs/*.doc
 
@@ -72,4 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(664,root,games) %config(noreplace) %verify(not size mtime md5) /var/games/xboing.score
 %{_datadir}/xboing
 %{_mandir}/man1/xboing.1x*
-%{_applnkdir}/Games/xboing.desktop
+%{_applnkdir}/Games/Arcade/xboing.desktop
+%{_pixmapsdir}/*
