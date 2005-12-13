@@ -28,7 +28,7 @@ Breakout. Celem gry jest utrzymanie pi³ki odbijaj±cej siê od cegie³ a¿
 do przebicia siê przez wszystkie.
 
 %prep
-%setup -q -n xboing
+%setup -q -n %{name}
 %patch -p1
 %patch1 -p1
 %patch2 -p1
@@ -37,7 +37,7 @@ do przebicia siê przez wszystkie.
 %build
 xmkmf
 %{__make} \
-	CC=%{__cc} \
+	CC="%{__cc}" \
 	CDEBUGFLAGS="%{rpmcflags}" \
 	XBOING_DIR=%{_datadir}/xboing \
 	HIGH_SCORE_FILE=/var/games/xboing.score
@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYRIGHT README docs/*.doc
 %attr(2755,root,games) %{_bindir}/xboing
-%attr(664,root,games) %config(noreplace) %verify(not size mtime md5) /var/games/xboing.score
+%attr(664,root,games) %config(noreplace) %verify(not md5 mtime size) /var/games/xboing.score
 %{_datadir}/xboing
 %{_mandir}/man1/xboing.1x*
 %{_desktopdir}/*
