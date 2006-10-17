@@ -6,8 +6,8 @@
  
 -    XPMLIB 				= -L/usr/X11/lib -lXpm
 -    XPMINCLUDE 			= -I/usr/X11/include/X11
-+    XPMLIB 			= -L/usr/X11R6/lib -lXpm
-+    XPMINCLUDE 			= -I/usr/X11R6/include/X11
++    XPMLIB 			= -lXpm
++    XPMINCLUDE 			= -I/usr/include/X11
      XBOINGINCLUDE 		= -I./include
      LEVEL_INSTALL_DIR 	= $(XBOING_DIR)/levels
      SOUNDS_DIR 			= $(XBOING_DIR)/sounds
