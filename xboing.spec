@@ -1,8 +1,8 @@
 Summary:	A Breakout style X Window System based game
-Summary(pl):	Gra pod X podobna do Breakout
+Summary(pl):	Gra pod X podobna do Breakouta
 Name:		xboing
 Version:	2.4
-Release:	12
+Release:	13
 License:	MIT
 Group:		X11/Applications/Games
 Source0:	http://www.techrescue.org/xboing/%{name}%{version}.tar.gz
@@ -14,7 +14,10 @@ Patch1:		%{name}-Imakefile.patch
 Patch2:		%{name}-sparc.patch
 Patch3:		%{name}-visualfix.patch
 URL:		http://www.techrescue.org/xboing/
-BuildRequires:	XFree86-devel
+BuildRequires:	xorg-cf-files
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXpm-devel
+BuildRequires:	xorg-util-imake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,16 +49,15 @@ xmkmf
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{/var/games,%{_datadir}/xboing,%{_desktopdir},%{_pixmapsdir},%{_bindir},%{_mandir}/man1}
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT \
+%{__make} install install.man \
+	DESTDIR=$RPM_BUILD_ROOT \
+	BINDIR=%{_bindir} \
+	MANDIR=%{_mandir}/man1 \
 	XBOING_DIR=$RPM_BUILD_ROOT%{_datadir}/xboing \
-	HIGH_SCORE_FILE=$RPM_BUILD_ROOT/var/games/xboing.score \
-	install install.man
+	HIGH_SCORE_FILE=$RPM_BUILD_ROOT/var/games/xboing.score
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-
-mv $RPM_BUILD_ROOT/usr/X11R6/bin/* $RPM_BUILD_ROOT%{_bindir}
-mv $RPM_BUILD_ROOT/usr/X11R6/man/man1/* $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
