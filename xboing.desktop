@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=XBoing
 Comment=Breakout-style Game
-Comment[pl]=Gra pod X podobna do Breakout
+Comment[pl]=Gra pod X podobna do Breakouta
 Icon=xboing.png
 Exec=xboing
 Type=Application
