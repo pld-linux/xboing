@@ -69,5 +69,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(664,root,games) %config(noreplace) %verify(not md5 mtime size) /var/games/xboing.score
 %{_datadir}/xboing
 %{_mandir}/man1/xboing.1x*
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
