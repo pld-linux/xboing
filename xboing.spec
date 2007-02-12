@@ -1,5 +1,5 @@
 Summary:	A Breakout style X Window System based game
-Summary(pl.UTF-8):   Gra pod X podobna do Breakouta
+Summary(pl.UTF-8):	Gra pod X podobna do Breakouta
 Name:		xboing
 Version:	2.4
 Release:	13
