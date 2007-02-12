@@ -1,5 +1,5 @@
 Summary:	A Breakout style X Window System based game
-Summary(pl):	Gra pod X podobna do Breakouta
+Summary(pl.UTF-8):   Gra pod X podobna do Breakouta
 Name:		xboing
 Version:	2.4
 Release:	13
@@ -25,10 +25,10 @@ Xboing is an X Window System based game like the Breakout arcade game.
 The object of the game is to keep a ball bouncing on the bricks until
 you've broken through all of them.
 
-%description -l pl
-Xboing jest gr± pod X Window System podobn± do klasycznej gry
-Breakout. Celem gry jest utrzymanie pi³ki odbijaj±cej siê od cegie³ a¿
-do przebicia siê przez wszystkie.
+%description -l pl.UTF-8
+Xboing jest grÄ… pod X Window System podobnÄ… do klasycznej gry
+Breakout. Celem gry jest utrzymanie piÅ‚ki odbijajÄ…cej siÄ™ od cegieÅ‚ aÅ¼
+do przebicia siÄ™ przez wszystkie.
 
 %prep
 %setup -q -n %{name}
