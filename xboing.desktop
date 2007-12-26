@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=XBoing
 Comment=Breakout-style Game
 Comment[pl]=Gra pod X podobna do Breakouta
-Icon=xboing.png
+Icon=xboing
 Exec=xboing
 Type=Application
 Terminal=false
